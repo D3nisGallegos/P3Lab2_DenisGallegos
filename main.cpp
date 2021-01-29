@@ -1,11 +1,16 @@
 #include <iostream>
 #include <string>
 #include <array>
+#include <stdlib.h>
+#include <time.h>
+#include <math.h>
 
 
 using namespace std;
 
-void ordenar(int arreglo [], int elemento);
+//srand(time(NULL));
+
+void ordenar(int arreglo [], int nuevo [], int elemento);
 
 
 int main(int argc, char** argv) {
@@ -67,6 +72,7 @@ int main(int argc, char** argv) {
 		    case 2:
 		    	{
 		    	cout << "          EJERCICIO2: " <<endl; 
+		    	srand(time(NULL)); 
 		    	int arreglo[20];
                 for(int c = 0; c< 20; c++){
                     arreglo[c] = 1 + (rand()% 99);
@@ -75,8 +81,12 @@ int main(int argc, char** argv) {
                 for(int c = 0; c < 20; c++){
                     cout<< "[" << arreglo[c] <<"] ";
                 } 
+                int nuevo[20];
+				for (int  h =0; h < 20;h++){
+					nuevo [h] = arreglo [h];
+				}
                 cout <<endl;
-                ordenar(arreglo, 20);
+                ordenar(arreglo, nuevo, 20);
                 cout <<endl;
                 cout<<"Arreglo Ordenado: "<<endl;;
                 for(int k = 0;k<20;k++){
@@ -87,7 +97,8 @@ int main(int argc, char** argv) {
 				}
 			case 3:
 				{
-					
+				cout << "          EJERCICIO 3: " <<endl;	
+				cout << "";
 			    break; 
 				}
 		}//Fin del switch que evalua la opcion. 
@@ -98,41 +109,36 @@ int main(int argc, char** argv) {
 			
 }
 
-	void ordenar(int arreglo [], int elemento){
-        /*if (elemento == 0){
-            return arreglo; 
+	void  ordenar(int arreglo [], int nuevo[], int elemento){
+        if (elemento == 0){
+            return;   
         }else {
-            if (elemento == arreglo.size() - 1){
+            if (elemento == 20){
                 bool validar = true; 
                 while (validar == true){
                     validar = false; 
-                    for (int c = 0;c < arreglo.size();c++){
-                        if (c < arreglo.size() - 1){
-                            if (arreglo [c] < arreglo [c + 1]){
+                    for (int c = 0;c < 20;c++){
+                        if (c < 19){
+                            if (arreglo [c] > arreglo [c + 1]){
                                 int aux = arreglo [c];
                                 int aux2 = arreglo [c + 1];
                                 arreglo [c] = aux2;
-                                arreglo [c + 1] aux;
+                                arreglo [c + 1] = aux;
                                 validar = true; 
-                            }//Fin del if que valida si un elemento es menor a otro.
+                            }else {
+                            	
+							}
                         }//Fin del if que valida que elementos validar.
                     }//Fin del for que recorre el arreglo.
                 }//Fin del while que valida si el arreglo esta ordenado.
-            }//Fin del if que valida el ciclo. 
-            arreglo = ordenar(arreglo, elemento - 1);
-            cout << "Etapa: " <<endl;
-                for(int c = 0; c < 20; c++){
-                    cout<< "[" << arreglo[c] <<"] ";
-                }
-            return arreglo;
-        }//Fin del if que valida que valor retornar.*/
-        cout << "Funcion: " <<endl;
-        for(int c = 0; c < 20; c++){
-            cout<< "[" << arreglo[c] <<"] ";
-        } 
+            }//Fin del if que valida el ciclo.
+            ordenar(arreglo, nuevo, elemento - 1);
+        }//Fin del if que valida que valor retornar.
     }//Fin del metodo ASCENDETE.
 
-
+	void sumatoria(int n){
+		
+	} 
 
 
 
