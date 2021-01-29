@@ -8,10 +8,10 @@
 
 using namespace std;
 
-//srand(time(NULL));
 
 void ordenar(int arreglo [], int nuevo [], int elemento);
 
+double sumatoria(int n, double suma, int h);
 
 int main(int argc, char** argv) {
 	
@@ -98,7 +98,12 @@ int main(int argc, char** argv) {
 			case 3:
 				{
 				cout << "          EJERCICIO 3: " <<endl;	
-				cout << "";
+				cout << "Ingrese el limite de la funcion: " <<endl ;
+				int lim; 
+				double suma = 0; 
+				cin >> lim; 
+				suma = sumatoria(lim, 0, lim); 
+				cout << "El resultado de la sumatoria es: " << suma; 
 			    break; 
 				}
 		}//Fin del switch que evalua la opcion. 
@@ -136,8 +141,20 @@ int main(int argc, char** argv) {
         }//Fin del if que valida que valor retornar.
     }//Fin del metodo ASCENDETE.
 
-	void sumatoria(int n){
-		
+	double sumatoria(int n, double suma, int h){
+		if (n == 0){
+			double sum = 0; 
+			for (int c = 1; c < h;c++){
+				int num = 2 * c + 1; 
+				int denom = (c + 1) * c;
+				double result = (double) num / denom;  
+				sum += result; 
+			}
+			return sum; 
+		}else {
+			suma = sumatoria(n - 1, suma,  h); 
+			return suma; 
+		}
 	} 
 
 
